@@ -7,11 +7,6 @@ public class CustomQueue<T> {
     final private Stack<T> outputStack = new Stack<>();
 
     public void add(T element) {
-        if (inputStack.empty()) {
-            while (!outputStack.empty()) {
-                inputStack.push(outputStack.pop());
-            }
-        }
         inputStack.push(element);
     }
 

@@ -12,15 +12,7 @@ public class Main {
     }
 
     public static int repeatCount(List list) {
-        Set set = new HashSet();
-        int count = 0;
-        for (Object element : list) {
-            if (set.contains(element)) {
-                count++;
-            } else {
-                set.add(element);
-            }
-        }
-        return count;
+        Set set = new HashSet(list);
+        return list.size() - set.size();
     }
 }

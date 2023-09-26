@@ -22,10 +22,10 @@ public class StudentList {
     }
 
     public String groupWithMinStudentsCount() {
-        Map<String, Integer> map = createStudentsMap();
         if (students.isEmpty()) {
             return "";
         }
+        Map<String, Integer> map = createStudentsMap();
         String group = students.get(0).getGroup();
         int minCount = map.get(students.get(0).getGroup());
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
@@ -42,7 +42,8 @@ public class StudentList {
         for (Student student : students) {
             String group = student.getGroup();
             if (!map.containsKey(group)) {
-                map.put(group, 0);
+                map.put(group, 1);
+                continue;
             }
             int count = map.get(group) + 1;
             map.put(group, count);
