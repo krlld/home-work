@@ -1,9 +1,6 @@
 package lesson16.firstTask;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -24,15 +21,12 @@ public class Main {
         Map<String, List<Product>> names = list.stream().
                 flatMap(order -> order.getMap().keySet().stream()).
                 collect(Collectors.groupingBy(Product::getName));
-        // String name = names.keySet().stream().
-        int max = 0;
-        String name = "";
-        for (String key : names.keySet()) {
-            if (max < names.get(key).size()) {
-                max = names.get(key).size();
-                name = key;
-            }
-        }
+        String name = names.entrySet().stream().
+                max((x, y) -> {
+                    if (x.getValue().size() > y.getValue().size()) return 1;
+                    else if (x.getValue().size() < y.getValue().size()) return -1;
+                    else return 0;
+                }).get().getKey();
         System.out.println(name);
     }
 }
