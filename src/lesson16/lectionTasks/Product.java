@@ -1,4 +1,4 @@
-package lesson16.firstTask;
+package lesson16.lectionTasks;
 
 public class Product {
     private float price;
