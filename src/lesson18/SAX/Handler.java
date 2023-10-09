@@ -1,7 +1,6 @@
-package lesson18.task2;
+package lesson18.SAX;
 
 import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 public class Handler extends DefaultHandler {
@@ -36,7 +35,7 @@ public class Handler extends DefaultHandler {
     }
 
     @Override
-    public void characters(char[] ch, int start, int length) throws SAXException {
+    public void characters(char[] ch, int start, int length) {
         buf.append(ch, start, length);
     }
 

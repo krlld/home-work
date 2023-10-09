@@ -1,4 +1,4 @@
-package lesson18.task2;
+package lesson18.SAX;
 
 import org.xml.sax.SAXException;
 
@@ -17,8 +17,8 @@ public class Main {
         saxParserFactory.setNamespaceAware(true);
         SAXParser saxParser = saxParserFactory.newSAXParser();
         Handler handler = new Handler();
-        saxParser.parse("/Users/kirilldikun/Desktop/tasks/src/lesson18/task1/text.xml", handler);
-        File result = new File("/Users/kirilldikun/Desktop/tasks/src/lesson18/task2/" +
+        saxParser.parse("/Users/kirilldikun/Desktop/tasks/src/lesson18/text.xml", handler);
+        File result = new File("/Users/kirilldikun/Desktop/tasks/src/lesson18/SAX/" +
                 handler.getFirstName() + "_" + handler.getLastName() + "_" + handler.getTitle() + ".txt");
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(result))) {
             bw.write(handler.getResult().toString());

@@ -1,4 +1,4 @@
-package lesson18.task1;
+package lesson18.DOM;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -18,7 +18,7 @@ public class Main {
     public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException {
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
-        Document document = documentBuilder.parse("/Users/kirilldikun/Desktop/tasks/src/lesson18/task1/text.xml");
+        Document document = documentBuilder.parse("/Users/kirilldikun/Desktop/tasks/src/lesson18/text.xml");
         Element sonnet = document.getDocumentElement();
         Element author = (Element) sonnet.getElementsByTagName("author").item(0);
         String firstName = author.getElementsByTagName("firstName").item(0).getTextContent();
@@ -29,7 +29,7 @@ public class Main {
         for (int i = 0; i < lines.getLength(); i++) {
             stringBuilder.append(lines.item(i).getTextContent());
         }
-        File result = new File("/Users/kirilldikun/Desktop/tasks/src/lesson18/task1/" + firstName + "_" + lastName + "_" + sonnetTitle + ".txt");
+        File result = new File("/Users/kirilldikun/Desktop/tasks/src/lesson18/DOM/" + firstName + "_" + lastName + "_" + sonnetTitle + ".txt");
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(result))) {
             bw.write(stringBuilder.toString());
         } catch (FileNotFoundException exception) {
